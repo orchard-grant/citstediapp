@@ -26,7 +26,7 @@ const App = () =>{
 
   useEffect(()=>{//this is code that has to run before we show app screen
    const getSessionToken = async()=>{
-    const sessionToken = await AsyncStorage.getItem('sessionToken');
+    const sessionToken =null;// await AsyncStorage.getItem('sessionToken');
     console.log('sessionToken',sessionToken);
     const validateResponse = await fetch('https://dev.stedi.me/validate/'+sessionToken,
     {
@@ -56,6 +56,7 @@ return(
   } else if(loggedInState==loggedInStates.NOT_LOGGED_IN){
     return (
       <View>
+        <Text style={styles.title}>Welcome Back</Text>
         <TextInput 
           value={phoneNumber}
           onChangeText={setPhoneNumber}
@@ -153,6 +154,10 @@ return(
      button: {
        alignItems: "center",
        backgroundColor: "#DDDDDD",
-       padding: 10
+       padding: 10,
+     },
+     title: {
+      textAlign: "center",
+      marginTop: 50,
      }    
  })
