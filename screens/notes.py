@@ -7,3 +7,8 @@
 
 # Things that we did in class
 # 1. We made the log in screen more usable, made it look better for the users. Also, we created a way to log out of the app, because before it wouldn't let us. We have a bunch of different javascript files, which all have different purposes. In class, we work together step by step through the code, and by updating the code we are updating the application. Logging in creates something called a token. That keeps our information in the system. We have to delete this token to be able to log out.
+
+# March 7, 2023
+# What is the principle of least privelage? You give them the resources and applications needed to complete a certain task. If they don't need that, then they don't get to see it. A doctor might need to know the weight of a patient to complete surgery, but an orderly (kind of like a nurse) won't need to know that information. 
+
+# With the STEDI App, 
