@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, Image, Share, Linking} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, Image, Share, Linking, Button} from 'react-native';
 import { Accelerometer } from 'expo-sensors';
 import getSpikesFromAccelerometer from '../utils/StepCalculator';
 import CircularProgress from 'react-native-circular-progress-indicator';
@@ -22,6 +22,19 @@ export default function Counter(props) {
  const [score, setScore] = useState(0);
 
  const [currentScreen, setCurrentScreen] = useState('counter');
+
+ const myCustomerShare = async() =>{
+  const shareOptions = {
+    message: 'https://dev.stedi.me/timer.html#306e4732-00d0-4d6c-839a-fe55f34bd2f1'
+  }
+  try{
+    const shareResponse = await Share.share(shareOptions)
+    console.log(shareResponse);
+    }
+    catch(error){
+console.log('Error', error)
+    }
+  }
 
  useEffect(()=>{//gets username and token from storage
   const getUserName = async ()=>{
@@ -321,6 +334,8 @@ elevation: 4}}>
    <Image source={exerciseImg}  style={styles.image} ></Image>
 <CardContent>
   <Text style={styles.text}>Step Quickly</Text>
+  <Button onPress={myCustomerShare} title="Add Spotter"></Button>
+
   <TouchableOpacity
      onPress={ subscription ? _unsubscribe : _subscribe}
       style={styles.button}
